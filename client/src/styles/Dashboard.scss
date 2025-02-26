@@ -1,0 +1,213 @@
+@use "variables" as *;
+@use "mixins" as m;
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: clamp($spacing-lg, 2vw, $spacing-2xl);
+  padding: clamp($spacing-lg, 3vw, $spacing-2xl);
+  max-width: $breakpoint-xl;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.dashboard-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $spacing-base;
+  margin-bottom: clamp($spacing-base, 2vw, $spacing-lg);
+}
+
+.view-controls {
+  display: flex;
+  gap: $spacing-xs;
+  flex-wrap: wrap;
+
+  button {
+    padding: $spacing-xs $spacing-base;
+    border: 1px solid $color-white;
+    background: $color-white;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: $transition-base;
+
+    &.active {
+      background: $color-blue ;
+      color: $color-white;
+      border-color: $color-blue ;
+    }
+
+    &:hover:not(.active) {
+      background: $color-white;
+    }
+  }
+}
+
+.upload-button {
+  padding: $spacing-xs $spacing-base;
+  background: $color-green;
+  color: $color-white;
+  border: none;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  transition: $transition-base;
+
+  &:hover {
+    background: $color-green-dark;
+  }
+}
+
+.dashboard-content {
+  display: flex;
+  gap: clamp($spacing-base, 2vw, $spacing-2xl);
+  flex-wrap: wrap;
+}
+
+.photos-section {
+  flex: 2;
+  min-width: min(100%, 300px);
+}
+
+.upload-section {
+  flex: 1;
+  min-width: min(100%, 300px);
+}
+
+.photo-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, $grid-item-min-width), 1fr));
+  gap: clamp($spacing-base, 2vw, $spacing-lg);
+}
+
+.photo-list-item {
+  display: flex;
+  gap: clamp($spacing-base, 2vw, $spacing-xl);
+  padding: clamp($spacing-sm, 2vw, $spacing-base);
+  background: $color-white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY($hover-lift);
+    box-shadow: $shadow-md;
+  }
+}
+
+.photo-thumbnail {
+  width: clamp(120px, 30vw, 180px);
+  height: auto;
+  aspect-ratio: $aspect-ratio-4-3;
+  object-fit: cover;
+  border-radius: $radius-md;
+}
+
+.photo-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  min-width: 0; // Prevents text overflow
+
+  h3 {
+    margin: 0;
+    color: $color-gray-dark;
+    font-size: clamp($font-size-base, 1.5vw, $font-size-lg);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  p {
+    margin: 0;
+    color: $color-gray-light;
+    font-size: clamp($font-size-sm, 1vw, $font-size-base);
+    line-height: $line-height-base;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: calc(3 * $line-height-base * 1em);
+  }
+}
+
+.photo-actions {
+  display: flex;
+  gap: $spacing-sm;
+  margin-top: auto;
+  flex-wrap: wrap;
+
+  button {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    padding: $spacing-xs $spacing-base;
+    border: none;
+    border-radius: $radius-md;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    cursor: pointer;
+    transition: background-color $transition-base;
+    white-space: nowrap;
+  }
+}
+
+.edit-button {
+  background-color: $color-white;
+  color: $color-gray-light;
+
+  &:hover {
+    background-color: $color-white;
+  }
+}
+
+.delete-button {
+  background-color: $color-red-dark;
+  color: $color-white;
+
+  &:hover {
+    background-color: $color-red;
+  }
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+@media (max-width: $breakpoint-lg) {
+  .dashboard-content {
+    flex-direction: column;
+  }
+
+  .photos-section,
+  .upload-section {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .photo-list-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .photo-thumbnail {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .photo-actions {
+    justify-content: center;
+  }
+
+  .dashboard-toolbar {
+    justify-content: center;
+  }
+}

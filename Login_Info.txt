@@ -1,0 +1,32 @@
+username : JohnDoe123
+email    : john.doe@example.com
+password : SecurePass123!
+
+
+username : Jean123
+email    : jean.rake@example.com
+password : SecuroPess234!
+
+
+
+username : john_smith
+email    : john.smith@email.com
+password : Photo2025!
+
+username : JohnDoe123
+email    : john.doe@example.com
+
+username : Jean123
+email    : jean.rake@example.com
+
+
+username : Nikky123	
+email    : nikky.home@example.com
+password : Photo2025!
+
+
+username : Valentine2	
+email    : valen.tine@example.com
+password : Test123!
+
+

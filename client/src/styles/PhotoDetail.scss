@@ -1,0 +1,212 @@
+@forward "variables";
+@use "mixins" as m;
+@use "sass:color";
+
+.container {
+  padding: $spacing-base;
+  max-width: $breakpoint-xl;
+  margin: 0 auto;
+  
+  @include m.breakpoint(md) {
+    padding: $spacing-lg;
+  }
+}
+
+.backButton {
+  @include m.button-base;
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  margin-bottom: $spacing-base;
+  color: $color-gray-light;
+  background: none;
+  padding: $spacing-sm;
+  
+  &:hover {
+    color: $color-dark;
+  }
+}
+
+.photoDetailLayout {
+  display: grid;
+  gap: $spacing-lg;
+  
+  @include m.breakpoint(lg) {
+    grid-template-columns: 3fr 2fr;
+  }
+}
+
+.photoSection {
+  .mainPhoto {
+    width: 100%;
+    height: auto;
+    border-radius: $radius-lg;
+    margin-bottom: $spacing-base;
+  }
+}
+
+.interactions {
+  display: flex;
+  gap: $spacing-base;
+  margin-bottom: $spacing-lg;
+}
+
+.likeButton {
+  @include m.button-base;
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  color: $color-gray-light;
+  background: none;
+  padding: $spacing-sm;
+  
+  &:hover {
+    color: $color-red;
+  }
+  
+  &.liked {
+    color: $color-red;
+  }
+}
+
+.infoSection {
+  background: $color-white;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-sm;
+}
+
+.photographerInfo {
+  margin-bottom: $spacing-lg;
+  
+  h2 {
+    @include m.heading-2;
+    margin-bottom: $spacing-sm;
+  }
+  
+  .location {
+    color: $color-gray-light;
+  }
+}
+
+.photoInfo {
+  margin-bottom: $spacing-lg;
+  
+  h3 {
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-sm;
+  }
+  
+  p {
+    color: $color-gray-light;
+    line-height: $line-height-relaxed;
+  }
+}
+
+.commentsSection {
+  h3 {
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-base;
+  }
+}
+
+.commentForm {
+  display: flex;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-base;
+  
+  .commentInput {
+    flex: 1;
+    padding: $spacing-sm;
+    border: 1px solid $color-gray-light;
+    border-radius: $radius-sm;
+    font-family: $font-family-base;
+    
+    &:focus {
+      outline: none;
+      border-color: $color-blue;
+    }
+  }
+  
+  .submitButton {
+    @include m.button-base;
+    background: $color-blue ;
+    color: $color-white;
+    
+    &:hover {
+      background: color.adjust($color-blue , $lightness: -10%);
+    }
+  }
+}
+
+.commentsList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-base;
+}
+
+.comment {
+  padding: $spacing-base;
+  background: $color-white;
+  border-radius: $radius-lg;
+  
+  .commentHeader {
+    @include m.flex-between;
+    margin-bottom: $spacing-sm;
+    
+    strong {
+      color: $color-dark;
+    }
+    
+    .commentDate {
+      font-size: $font-size-sm;
+      color: $color-gray-light;
+    }
+  }
+  
+  p {
+    color: $color-gray-light;
+    line-height: $line-height-relaxed;
+  }
+  
+  .deleteButton {
+    @include m.button-base;
+    margin-top: $spacing-sm;
+    padding: $spacing-sm * 0.5 $spacing-base;
+    background: $color-red;
+    color: $color-white;
+    font-size: $font-size-sm;
+    
+    &:hover {
+      background: color.adjust($color-red, $lightness: -10%);
+    }
+  }
+}
+
+.loading {
+  @include m.flex-center;
+  min-height: 50vh;
+  color: $color-gray-light;
+}
+
+.error {
+  @include m.flex-center;
+  min-height: 50vh;
+  color: $color-red;
+  text-align: center;
+}
+
+.backButton {
+  @include m.button-base;
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-base;
+  color: $color-gray-light;
+  background: none;
+  padding: $spacing-lg;
+  
+  &:hover {
+    color: $color-dark;
+  }
+}

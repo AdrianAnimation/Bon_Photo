@@ -1,0 +1,31 @@
+@use 'variables' as *;
+@use 'mixins' as m;
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: $viewport-height;
+  
+  main {
+    flex: 1;
+    padding: $spacing-base;
+  }
+}
+
+.main-content {
+  flex: 1 0 auto; /* This makes the main content grow to fill available space */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure the footer stays at the bottom */
+footer {
+  margin-top: auto;
+  flex-shrink: 0; /* Prevents the footer from shrinking */
+}
+
+.footer {
+  text-align: center;
+  padding: auto;
+  margin-bottom: 1rem;
+}

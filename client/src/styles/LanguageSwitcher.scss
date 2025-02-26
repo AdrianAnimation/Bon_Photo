@@ -1,0 +1,28 @@
+@use "variables" as *;
+
+.language-switcher {
+  display: flex;
+  gap: $spacing-xs;
+  margin-left: auto;
+  padding: $spacing-xs;
+
+  button {
+    background: none;
+    border: 1px solid $color-white;
+    border-radius: $radius-sm;
+    padding: $spacing-xs $spacing-sm;
+    color: $color-gray-light;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: $color-white;
+    }
+
+    &.active {
+      background-color: $color-blue;
+      color: white;
+      border-color: $color-blue ;
+    }
+  }
+}

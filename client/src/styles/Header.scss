@@ -1,0 +1,126 @@
+@use "variables" as *;
+
+.header {
+  background-color: $color-white;
+  border-bottom: 1px solid $color-white;
+  padding: $spacing-xl 0;
+  min-height: 160px;
+  position: sticky;
+  top: 0;
+  z-index: $z-index-dropdown;
+  box-shadow: $shadow-sm;
+}
+
+.header-container {
+  max-width: $breakpoint-xl;
+  margin: 0 auto;
+  padding: 0 $spacing-2xl;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-2xl;
+  height: 100%;
+  
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    gap: $spacing-lg;
+    padding: 0 $spacing-base;
+  }
+}
+
+.logo {
+  flex-shrink: 0;
+  
+  a {
+    display: block;
+  }
+  
+  img {
+    height: 80px;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    
+    @media (max-width: $breakpoint-md) {
+      height: 60px;
+    }
+  }
+}
+
+nav {
+  flex: 1;
+  
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: $spacing-xxs;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+      gap: $spacing-lg;
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  
+  li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    color: $color-gray-light;
+    text-decoration: none;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    padding: $spacing-md $spacing-md;
+    border-radius: $radius-sm;
+    transition: $transition-base;
+    display: block;
+    
+    &:hover {
+      color: $color-blue ;
+      background-color: $color-white;
+    }
+    
+    &.active {
+      color: $color-blue ;
+      background-color: $color-white;
+    }
+  }
+}
+
+// Hamburger menu for mobile
+.nav-toggle {
+  display: none;
+  padding: $spacing-xs;
+  background: none;
+  border: none;
+  cursor: pointer;
+  
+  @media (max-width: $breakpoint-md) {
+    display: block;
+    position: absolute;
+    top: $spacing-xl;
+    right: $spacing-xl;
+  }
+}
+
+// Mobile navigation
+@media (max-width: $breakpoint-md) {
+  nav {
+    width: 100%;
+    
+    &.nav-closed {
+      display: none;
+    }
+    
+    &.nav-open {
+      display: block;
+    }
+  }
+}

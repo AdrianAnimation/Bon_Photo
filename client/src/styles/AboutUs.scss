@@ -1,0 +1,42 @@
+@use "variables" as *;
+
+.about-us-container {
+  max-width: $breakpoint-lg;
+  margin: 0 auto;
+  padding: $spacing-2xl $spacing-base;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 200px); // Accounting for header and footer
+  text-align: center;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl $spacing-base;
+  }
+
+  h1 {
+    font-size: clamp($font-size-xl, 4vw, 2.5rem);
+    color: $color-gray-dark;
+    margin-bottom: $spacing-xl;
+    font-weight: $font-weight-bold;
+  }
+  
+  p {
+    font-size: $font-size-lg;
+    line-height: $line-height-relaxed;
+    color: $color-gray-light;
+    margin-bottom: $spacing-lg;
+    max-width: 800px;
+    
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-base;
+    }
+    
+    &:last-child {
+      margin-top: $spacing-2xl;
+      color: $color-gray-light;
+      font-size: $font-size-base;
+    }
+  }
+}

@@ -1,0 +1,75 @@
+@use "variables" as *;
+
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: clamp($spacing-base, 3vw, $spacing-2xl) 0;
+  width: 100%;
+  
+  form {
+    display: flex;
+    align-items: center;
+    gap: clamp($spacing-xs, 1.5vw, $spacing-base);
+    width: min(90%, $breakpoint-lg);
+    padding: 0 $spacing-base;
+    
+    .search-input {
+      padding: $spacing-sm $spacing-base;
+      font-size: $font-size-base;
+      width: 100%;
+      min-width: 200px;
+      border: 1px solid $color-white;
+      border-radius: $radius-sm;
+      transition: $transition-base;
+      
+      &:focus {
+        outline: none;
+        border-color: $color-blue;
+        box-shadow: $shadow-sm;
+      }
+    }
+    
+    .search-button {
+      padding: $spacing-sm $spacing-md;
+      background-color: $color-blue;
+      color: $color-white;
+      border: none;
+      border-radius: $radius-sm;
+      cursor: pointer;
+      font-size: $font-size-base;
+      white-space: nowrap;
+      transition: $transition-base;
+      min-width: 100px;
+      
+      &:hover {
+        background-color: $color-blue;
+      }
+    }
+  }
+  
+  .search-error {
+    margin-top: $spacing-sm;
+    color: $color-red-dark;
+    font-size: $font-size-sm;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .search-bar {
+    form {
+      flex-direction: column;
+      gap: $spacing-sm;
+      width: min(95%, 500px);
+      
+      .search-input,
+      .search-button {
+        width: 100%;
+      }
+      
+      .search-button {
+        min-width: auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+@use "variables" as *;
+@use "mixins" as m;
+
+.upload-form {
+  padding: $spacing-base;
+}
+
+.form-group {
+  margin-bottom: $spacing-base;
+
+  label {
+    display: block;
+    margin-bottom: $spacing-xs;
+    color: $color-gray-dark;
+    font-weight: $font-weight-medium;
+  }
+
+  input[type="text"],
+  input[type="file"],
+  textarea,
+  select {
+    width: 100%;
+    padding: $spacing-xs $spacing-md;
+    border: 1px solid $color-white;
+    border-radius: $radius-sm;
+    font-size: $font-size-sm;
+  }
+  
+  input[type="file"] {
+    padding: $spacing-xs;
+  }
+
+  textarea {
+    min-height: $textarea-min-height;
+    padding: $spacing-sm;
+    resize: vertical;
+  }
+}
+
+.preview {
+  margin-top: $spacing-sm;
+  border-radius: $radius-sm;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: auto;
+    max-height: $preview-max-height;
+    object-fit: cover;
+  }
+}
+
+.preview-container {
+  margin-top: $spacing-base;
+
+  img {
+    max-height: $preview-max-height;
+    width: auto;
+    border-radius: $radius-sm;
+  }
+}
+  
+button[type="submit"] {
+  width: 100%;
+  padding: $spacing-sm;
+  background: $color-green;
+  color: $color-white;
+  border: none;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  font-size: $font-size-sm;
+  transition: background-color $transition-base;
+
+  &:hover {
+    background: $color-green-dark;
+  }
+}
+
+.submit-button {
+  background-color: $color-green;
+  color: $color-white;
+  padding: $spacing-xs $spacing-base;
+  border: none;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  transition: background-color $transition-base;
+
+  &:hover {
+    background-color: $color-green-dark;
+  }
+}

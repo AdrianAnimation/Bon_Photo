@@ -1,0 +1,74 @@
+@use './variables' as *;
+@use './mixins' as m;
+
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: $spacing-xl;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-base;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-base;
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-xs;
+
+      label {
+        font-weight: 600;
+        color: $color-gray-dark;
+      }
+
+      input, textarea {
+        padding: $spacing-base;
+        border: 1px solid $color-white;
+        border-radius: $radius-sm;
+
+        &:focus {
+          outline: none;
+          border-color: $color-blue ;
+        }
+      }
+    }
+
+    button[type="submit"] {
+      @include m.button-base;
+      background: $color-blue ;
+      color: $color-white;
+      font-weight: 600;
+
+      &:hover {
+        background: $color-blue ;
+      }
+
+      &:disabled {
+        background: $color-gray-light;
+        cursor: not-allowed;
+      }
+
+      &.secondary {
+        background: $color-gray-light;
+      }
+    }
+
+    select {
+      padding: $spacing-base;
+      border: 1px solid $color-white;
+      border-radius: $radius-sm;
+    }
+  }
+
+  .error-message {
+    color: $color-red;
+    font-size: $font-size-sm;
+    margin-top: $spacing-xs;
+  }
+}

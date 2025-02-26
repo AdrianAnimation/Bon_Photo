@@ -1,0 +1,81 @@
+@use "variables" as *;
+@use "mixins" as m;
+
+.dashboard-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: $viewport-height;
+  background-color: $color-white;
+}
+
+.dashboard-header {
+  background-color: $color-white;
+  padding: clamp($spacing-xs, 2vw, $spacing-base) clamp($spacing-base, 3vw, $spacing-2xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $color-white;
+  flex-wrap: wrap;
+  gap: $spacing-base;
+  
+  // Logo styles
+  .logo {
+    display: flex;
+    align-items: center;
+    
+    img {
+      max-width: 150px;
+      width: auto;
+      height: auto;
+    }
+  }
+}
+
+.dashboard-controls {
+  display: flex;
+  align-items: center;
+  gap: clamp($spacing-xs, 2vw, $spacing-base);
+  flex-wrap: wrap;
+}
+
+.logout-button {
+  padding: $spacing-xs $spacing-base;
+  background-color: $color-red;
+  color: $color-white;
+  border: none;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  transition: background-color $transition-base;
+  white-space: nowrap;
+  min-width: max-content;
+
+  &:hover {
+    background-color: $color-red-dark;
+  }
+}
+
+.dashboard-main {
+  flex: 1;
+  padding: clamp($spacing-base, 3vw, $spacing-2xl);
+}
+
+@media (max-width: $breakpoint-md) {
+  .dashboard-header {
+    flex-direction: column;
+    padding: $spacing-base;
+    text-align: center;
+    
+    .logo {
+      justify-content: center;
+      
+      img {
+        max-width: 120px;
+      }
+    }
+  }
+  
+  .dashboard-controls {
+    width: 100%;
+    justify-content: center;
+  }
+}

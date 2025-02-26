@@ -1,0 +1,19 @@
+// Abstracts
+@use './variables' as *;
+@use './mixins' as m;
+
+// Base
+@use './reset';
+
+// Components
+@use './forms';
+@use './Header';
+@use './AboutUs';
+
+// Global styles
+body {
+  font-family: $font-family-base;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
