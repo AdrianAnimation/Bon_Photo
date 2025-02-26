@@ -1,32 +1,47 @@
-username : JohnDoe123
-email    : john.doe@example.com
-password : SecurePass123!
-
-
-username : Jean123
-email    : jean.rake@example.com
-password : SecuroPess234!
-
-
-
 username : john_smith
 email    : john.smith@email.com
-password : Photo2025!
+password : Test123!
+
+username : emma_white	
+email    : emma.white@email.com
+password : Test123!
+
+username : carlos_rodriguez	
+email    : carlos.r@email.com
+password : Test123!
+
+username : sophie_dubois	
+email    : sophie.d@email.com
+password : Test123!
+
+username : marco_rossi	
+email    : marco.rossi@email.com
+password : Test123!
 
 username : JohnDoe123
 email    : john.doe@example.com
+password : Test123!
 
 username : Jean123
 email    : jean.rake@example.com
-
+password : Test123!
 
 username : Nikky123	
 email    : nikky.home@example.com
-password : Photo2025!
+password : Test123!
 
+username : Ronald123	
+email    : ronald.eckhart@example.com
+password : Test123!
+
+username : Bob1492	
+email    : bob.adams@example.com
+password : Test123!
 
 username : Valentine2	
 email    : valen.tine@example.com
 password : Test123!
 
-
+username : Manuel224	
+email    : manuel.user@example.com
+password : Test123!
