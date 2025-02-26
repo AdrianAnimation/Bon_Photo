@@ -3,14 +3,30 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchPhotos = createAsyncThunk(
   'dashboardPhotos/fetchPhotos',
   async () => {
-    const response = await fetch('/api/dashboard/photos', {
-      credentials: 'include',
-      headers: {
-        'Accept': 'application/json'
+    // Try up to 2 times with a 500ms delay
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        const response = await fetch('/api/dashboard/photos', {
+          credentials: 'include',
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          return response.json();
+        }
+        
+        // If it's not the last attempt, wait 500ms before retry
+        if (attempt < 1) {
+          await new Promise(resolve => setTimeout(resolve, 500));
+        }
+      } catch (error) {
+        // Only throw on last attempt
+        if (attempt === 1) throw error;
       }
-    });
-    if (!response.ok) throw new Error('Failed to fetch photos');
-    return response.json();
+    }
+    throw new Error('Failed to fetch photos');
   }
 );
 
